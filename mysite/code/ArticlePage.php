@@ -2,6 +2,10 @@
 
 class ArticlePage extends Page {
 
+	private static $db = array (
+		'Date' => 'BadDateClass',
+	);
+
 	private static $has_one = array (
 		'Photo' => 'Image',
 		'Brochure' => 'File',
