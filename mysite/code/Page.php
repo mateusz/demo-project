@@ -29,7 +29,8 @@ class Page_Controller extends ContentController {
 	private static $allowed_actions = array (
 		'set',
 		'regen',
-		'get'
+		'get',
+		'thrash'
 	);
 
 	public function init() {
@@ -74,6 +75,7 @@ class Page_Controller extends ContentController {
 		}
 		Member::session_regenerate_id();
 		echo "New session ID: " . session_id();
+
 	}
 
 }
