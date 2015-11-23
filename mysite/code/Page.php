@@ -2,6 +2,7 @@
 class Page extends SiteTree {
 
 	private static $db = array(
+		'IsAPage' => 'Boolean'
 	);
 
 	private static $has_one = array(
@@ -26,6 +27,9 @@ class Page_Controller extends ContentController {
 	 * @var array
 	 */
 	private static $allowed_actions = array (
+		'set',
+		'regen',
+		'get'
 	);
 
 	public function init() {
@@ -46,6 +50,30 @@ class Page_Controller extends ContentController {
 
 
 
+	}
+
+	public function set() {
+		Session::start();
+		Session::set('Var', $_GET['set']);
+		var_dump(Session::get('Var'));
+	}
+
+	public function regen() {
+		session_regenerate_id();
+	}
+
+	public function get() {
+		var_dump(Session::get('Var'));
+	}
+
+	public function thrash() {
+		echo 'Session id: ' . session_id();
+		if (!Session::get('foo')) {
+			echo "No foo present";
+			Session::set('foo', 'bar');
+		}
+		Member::session_regenerate_id();
+		echo "New session ID: " . session_id();
 	}
 
 }
