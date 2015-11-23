@@ -1,2 +1,2 @@
-base: debian-wheezy
-infrastructure: 1.3.5
+base: debian-jessie
+infrastructure: 954b0ada4f228e22d27474532a6a610d2922c0c8
